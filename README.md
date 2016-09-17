@@ -6,6 +6,18 @@ Starter kit for development of react modules/components
 
 `create-react-app-module create <comp-name>`
 
+#### Roadmap
+* [x] Elint
+* [x] Babel
+* [x] Webpack
+* [x] Hot Module loader
+* [ ] Jasmine Unit test
+* [ ] Visual tests
+* [ ] Functional tests
+* [ ] Code coverage
+* [ ] Build config
+* [ ] Publish config
+
 #### Create components with zero build configurations
 Aim of the project is to build reusable __BUILD CONFIG__.
 
