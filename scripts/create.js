@@ -5,6 +5,7 @@ import spawn from 'cross-spawn';
 import chalk from 'chalk';
 import semver from 'semver';
 import pathExists from 'path-exists';
+import argv from 'minimist';
 
 const isSafeToCreateProjectIn = (root) => {
   const validFiles = [
@@ -18,8 +19,8 @@ const isSafeToCreateProjectIn = (root) => {
 
 const checkAppName = (appName) => {
   const packageJsonPath = path.resolve(
-    process.cwd(),
-    'package.json'
+    __dirname,
+    '../template/package.json'
   );
   const packageJson = require(packageJsonPath);
   const dependencies = packageJson.dependencies || {};
@@ -40,10 +41,10 @@ const checkAppName = (appName) => {
   }
 };
 
-const checkNodeVersion = (root) => {
+const checkNodeVersion = () => {
   const packageJsonPath = path.resolve(
-    root,
-    'package.json'
+    __dirname,
+    '../template/package.json'
   );
   const packageJson = require(packageJsonPath);
   if (!packageJson.engines || !packageJson.engines.node) {
@@ -83,7 +84,7 @@ const run = (root, appName) => {
   proc.on('close', function(code) {
     if (code !== 0) {
       console.error(chalk.red(`npm ${args.join(' ')} failed`));
-      return;
+      process.exit(1);
     } else {
       console.log(chalk.green(`Component ${appName} created successfully`));
     }
@@ -111,9 +112,16 @@ const createApp = (name) => {
 
   fse.copy(path.join(__dirname, '../template'), root, function (err) {
     if (err) return console.error(err);
-    console.log('Files copied!');
+    console.log(chalk.blue('Files copied!'));
     run(root, appName);
   });
 };
 
-export default createApp;
+const commands = argv(process.argv.slice(2))._;
+if (commands.length < 1) {
+  console.log(chalk.red(
+    'Usage: create-react-app create <project-directory>'
+  ));
+  process.exit(0);
+}
+createApp(commands[0]);

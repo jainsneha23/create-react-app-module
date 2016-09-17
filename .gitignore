@@ -15,3 +15,6 @@ node_modules
 # package
 package
 *.tgz
+
+# build
+bin
