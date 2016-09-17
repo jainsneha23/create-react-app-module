@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import argv from 'minimist';
 import spawn from 'cross-spawn';
 import chalk from 'chalk';
