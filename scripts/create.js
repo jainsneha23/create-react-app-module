@@ -111,6 +111,9 @@ const createApp = (name) => {
   ));
 
   fse.copy(path.join(__dirname, '../template'), root, function (err) {
+    fse.copySync(path.join(root, '/gitignore.txt'),
+      path.join(root, '/.gitignore'));
+    fse.removeSync(path.join(root, '/gitignore.txt'));
     if (err) return console.error(err);
     console.log(chalk.blue('Files copied!'));
     run(root, appName);
