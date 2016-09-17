@@ -15,6 +15,3 @@ node_modules
 # package
 package
 *.tgz
-
-# Build
-bin
