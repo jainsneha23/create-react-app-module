@@ -1,6 +1,6 @@
 {
   "name": "create-react-app-module",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Create React components with no build configuration.",
   "main": "tools/server.js",
   "scripts": {
