@@ -10,7 +10,7 @@
     "prepublish": "npm run lint & npm run compile"
   },
   "bin": {
-    "component-builder": "./bin/init.js"
+    "create-react-app-module": "./bin/init.js"
   },
   "repository": {
     "type": "git",
