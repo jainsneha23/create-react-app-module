@@ -11,7 +11,7 @@ import chalk from 'chalk';
 const commands = argv(process.argv.slice(2))._;
 if (commands.length < 2) {
   console.log(chalk.red(
-    'Usage: create-react-app create <project-directory>'
+    'Usage: create-react-app create|update <project-directory>'
   ));
   process.exit(0);
 }
