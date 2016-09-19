@@ -4,7 +4,7 @@ Starter kit for development of react modules/components
 
 `npm install create-react-app-module`
 
-`create-react-app-module create <comp-name>`
+`create-react-app-module create|update <comp-name>`
 
 #### Roadmap
 * [x] Elint

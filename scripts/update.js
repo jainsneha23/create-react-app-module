@@ -53,7 +53,7 @@ const run = (root, appName) => {
       console.error(chalk.red(`npm ${args.join(' ')} failed`));
       process.exit(1);
     } else {
-      console.log(chalk.green(`Component ${appName} created successfully`));
+      console.log(chalk.green(`Component ${appName} updated successfully`));
     }
   });
 };
@@ -83,7 +83,8 @@ const updateApp = (name) => {
   var appName = path.basename(root);
 
   if (!pathExists.sync(name)) {
-    console.log(`Component ${name} not found. Please create.`);
+    console.log(chalk.red(`Component ${name} not found. Please create.`));
+    process.exit(1);
   } else {
     Ask(`This will overwrite all files other than src.
       Please backup before continuing.
