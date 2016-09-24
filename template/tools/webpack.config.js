@@ -2,7 +2,7 @@ import webpack from 'webpack';
 
 export default {
   debug: true,
-  devtool: 'cheap-module-eval-source-map',
+  devtool: '#inline-source-map',
   noInfo: false,
   colors: true,
   entry: [
